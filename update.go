@@ -156,6 +156,12 @@ func (ub *UpdateBuilder) Limit(limit int) *UpdateBuilder {
 	return ub
 }
 
+// Args returns all arguments for the compiled UPDATE builder.
+func (ub *UpdateBuilder) Args() []interface{} {
+	_, args := ub.Build()
+	return args
+}
+
 // String returns the compiled UPDATE string.
 func (ub *UpdateBuilder) String() string {
 	s, _ := ub.Build()
